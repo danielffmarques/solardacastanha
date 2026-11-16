@@ -263,13 +263,6 @@ function initSolarRoomsAccordion() {
     // Carrossel interno da habitação
     initUnitCarousel(item);
   });
-
-  // Abrir a Suite Tentilhão por defeito
-  if (items.length > 0 && !accordion.querySelector('.house-file-item.active')) {
-    items[0].classList.add('active');
-    const firstHeader = items[0].querySelector('.house-file-header');
-    if (firstHeader) firstHeader.setAttribute('aria-expanded', 'true');
-  }
 }
 
 /**
@@ -404,74 +397,48 @@ function initActivitiesTabs() {
 
   const TOWNS_DATA = {
     manteigas: {
-      title: 'Vila de Manteigas',
+      title: 'Manteigas',
       distance: '~2,5 km • 5 min do Solar',
       image: 'assets/images/activity_manteigas_vila.jpg',
       imageAlt: 'Vila histórica de Manteigas no Parque Natural da Serra da Estrela',
-      desc: 'Aninhada no coração do Vale do Zêzere a mais de 700 metros de altitude, Manteigas preserva ruelas serranas ancestrais, fontes de água límpida pura, a secular fábrica de tecelagem Burel Factory e uma rica gastronomia com a célebre feijoca de Manteigas e trutas da serra.',
+      desc: 'Coração da Serra da Estrela e berço do Vale Glaciar do Zêzere. Manteigas conjuga cascatas míticas como o Poço do Inferno, a poesia outonal da Rota das Faias e a arte viva do burel.',
       highlights: [
-        'Centro Histórico & Igreja da Misericórdia',
-        'Burel Factory & Tecelagem de Lã Bordaleira',
-        'Feijoca de Manteigas & Trutas do Zêzere',
-        'Termas Medicinais de Manteigas'
+        'Cascata Monumental do Poço do Inferno',
+        'Trilho Dourado da Rota das Faias',
+        'Vale Glaciar do Zêzere (UNESCO)',
+        'Tecelagem de Burel & Termas de Manteigas'
       ]
     },
-    pocodoinferno: {
-      title: 'Cascata do Poço do Inferno',
-      distance: '~3,8 km • 6 min do Solar',
-      image: 'assets/images/activity_poco_inferno.jpg',
-      imageAlt: 'Cascata do Poço do Inferno na garganta rochosa',
-      desc: 'Uma das quedas de água mais deslumbrantes e míticas de Portugal. A água límpida da Ribeira de Leandres despenha-se de uma garganta natural em rocha xistosa a mais de 10 metros de altura para uma lagoa cristalina, rodeada por teixos, azevinhos e carvalhais raros.',
+    seia: {
+      title: 'Seia',
+      distance: '~26 km • 32 min do Solar',
+      image: 'assets/images/activity_seia_sabugueiro.jpg',
+      imageAlt: 'Aldeia típica do Sabugueiro em Seia',
+      desc: 'Na vertente ocidental da serra, Seia guarda a tradição pastoril mais genuína, as aldeias de montanha como o Sabugueiro, os fornos comunitários de centeio e o saber ancestral do queijo.',
       highlights: [
-        'Cascata Monumental de 10 Metros',
-        'Lagoa Natural de Águas Cristalinas',
-        'Trilho Botânico & Floresta Primária',
-        'Miradouro sobre o Desfiladeiro de Leandres'
+        'Aldeia Típica do Sabugueiro (Mais Alta de Portugal)',
+        'Museu do Pão & Tradições do Centeio',
+        'Fumeiro Tradicional & Requeijão com Doce de Abóbora',
+        'Porta Ocidental do Parque Natural'
       ]
     },
-    faias: {
-      title: 'Rota das Faias (São Lourenço)',
-      distance: '~4,5 km • 8 min do Solar',
-      image: 'assets/images/activity_rota_faias.jpg',
-      imageAlt: 'Floresta mágica de faias douradas e castanheiros na Serra da Estrela',
-      desc: 'O trilho florestal mais admirado do Parque Natural da Serra da Estrela. Plantada no início do século XX, a mata de faias e castanheiros cria um túnel botânico de folhas cobreadas e douradas que filtra a luz do sol de forma mágica em qualquer estação.',
+    covilha: {
+      title: 'Covilhã',
+      distance: '~24 km • 30 min do Solar',
+      image: 'assets/images/activity_covilha_lanificios.jpg',
+      imageAlt: 'Covilhã e Museu dos Lanifícios',
+      desc: 'Erguida nas encostas viradas para a Cova da Beira, a Covilhã alia a secular indústria de lanifícios e teares à subida direta ao cume da Torre e aos grandes miradouros serranos.',
       highlights: [
-        'Bosque de Faias e Castanheiros Centenários',
-        'Capela de São Lourenço & Miradouro Panorâmico',
-        'Túnel de Folhagem Dourada e Cobreada',
-        'Percurso Pedestre Circular de Fácil Acesso'
-      ]
-    },
-    valeglaciar: {
-      title: 'Vale Glaciar do Zêzere',
-      distance: '~9 km • 12 min do Solar',
-      image: 'assets/images/activity_vale_glaciar.jpg',
-      imageAlt: 'Vale Glaciar em U do Rio Zêzere na Serra da Estrela',
-      desc: 'O maior vale de origem glaciar em forma de U de toda a Europa, estendendo-se por 13 quilómetros desde o Covão da Ametade até Manteigas. Uma paisagem geológica grandiosa reconhecida como Estrela Geopark da UNESCO, pontuada por típicas cortes de pastor em granito.',
-      highlights: [
-        'Maior Vale Glaciar em U da Europa',
-        'Covão da Ametade & Nascente do Rio Zêzere',
-        'Cortes de Pastor Tradicionais em Granito',
-        'Estrela Geopark Mundial da UNESCO'
-      ]
-    },
-    torre: {
-      title: 'Torre & Maciço Central',
-      distance: '~22 km • 28 min do Solar',
-      image: 'assets/images/activity_torre.jpg',
-      imageAlt: 'Torre e planalto do Maciço Central da Serra da Estrela',
-      desc: 'O ponto mais alto de Portugal Continental a 1993 metros de altitude, onde se avistam horizontes infinitos entre o granito e as nuvens. No inverno, o manto branco de neve convida a brincadeiras de montanha; no verão, as lagoas glaciares (Comprida e Escura) oferecem serenidade total.',
-      highlights: [
-        'Ponto Mais Alto de Portugal (1993 m)',
-        'Cenário Mágico de Neve no Inverno',
-        'Lagoa Comprida & Lagoas de Altitude',
-        'Degustação de Queijo da Serra DOP Fresco'
+        'Museu dos Lanifícios & Real Fábrica de Panos',
+        'Torre & Maciço Central a 1993 m de Altitude',
+        'Miradouros Panorâmicos da Cova da Beira',
+        'Gastronomia Típica & Pastéis de Molho'
       ]
     }
   };
 
   let currentPage = 1;
-  const cardsPerPage = 4;
+  const cardsPerPage = 6;
   let filteredCards = [...allCards];
 
   function applyFilters() {

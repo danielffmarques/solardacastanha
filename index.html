@@ -550,20 +550,18 @@
         <div class="activities-filter-bar">
           <div class="activities-filters-group">
             
-            <!-- Seletor 1: Região / Ponto de Interesse -->
+            <!-- Seletor 1: Localidade (Máximo 3 Localidades em Volta da Serra) -->
             <div class="filter-dropdown-wrapper">
               <label for="town-filter-select" class="filter-label">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                <span>Destino ou Rota:</span>
+                <span>Localidade:</span>
               </label>
               <div class="custom-select-box">
-                <select id="town-filter-select" class="guest-select-input" aria-label="Filtrar por destino ou percurso">
-                  <option value="all" selected>Toda a Serra da Estrela</option>
-                  <option value="manteigas">Vila de Manteigas</option>
-                  <option value="pocodoinferno">Poço do Inferno</option>
-                  <option value="faias">Rota das Faias</option>
-                  <option value="valeglaciar">Vale Glaciar do Zêzere</option>
-                  <option value="torre">Torre &amp; Maciço Central</option>
+                <select id="town-filter-select" class="guest-select-input" aria-label="Filtrar por localidade">
+                  <option value="all" selected>Todas as Localidades</option>
+                  <option value="manteigas">Manteigas</option>
+                  <option value="seia">Seia</option>
+                  <option value="covilha">Covilhã</option>
                 </select>
                 <div class="select-chevron" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -571,7 +569,7 @@
               </div>
             </div>
 
-            <!-- Seletor 2: Tipo de Experiência -->
+            <!-- Seletor 2: Tipo de Experiência (Natureza e Passeios, Monumentos e Património, Gastronomia) -->
             <div class="filter-dropdown-wrapper">
               <label for="category-filter-select" class="filter-label">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
@@ -580,9 +578,9 @@
               <div class="custom-select-box">
                 <select id="category-filter-select" class="guest-select-input" aria-label="Filtrar por categoria de experiência">
                   <option value="all" selected>Todas as Experiências</option>
-                  <option value="natureza">Natureza &amp; Cascatas</option>
-                  <option value="patrimonio">Património &amp; Burel</option>
-                  <option value="gastronomia">Gastronomia &amp; Queijo DOP</option>
+                  <option value="natureza">Natureza e Passeios</option>
+                  <option value="patrimonio">Monumentos e Património</option>
+                  <option value="gastronomia">Gastronomia</option>
                 </select>
                 <div class="select-chevron" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -593,37 +591,37 @@
           </div>
 
           <div class="filter-live-status">
-            <span class="active-count-badge" id="activities-count-badge">8 Experiências Disponíveis</span>
+            <span class="active-count-badge" id="activities-count-badge">9 Experiências Disponíveis</span>
           </div>
         </div>
 
-        <!-- Grelha de Atividades com Cabeçalhos Limpos (Regra 5) -->
+        <!-- Grelha de Atividades com Imagem Horizontal e Cabeçalhos Limpos (Regra 5) -->
         <div class="activities-grid" id="activitiesGrid">
 
           <!-- Cartão Editorial Dinâmico de Apresentação da Região -->
           <article class="town-feature-row" id="townFeatureCard" style="display: none;">
             <div class="town-feature-media">
-              <img id="townFeatureImg" src="assets/images/activity_poco_inferno.jpg" alt="Cascata do Poço do Inferno" loading="lazy">
+              <img id="townFeatureImg" src="assets/images/activity_manteigas_vila.jpg" alt="Manteigas" loading="lazy">
             </div>
             <div class="town-feature-content">
               <div class="town-feature-header">
                 <div class="town-feature-title-wrap">
-                  <h3 id="townFeatureTitle">Cascata do Poço do Inferno</h3>
-                  <span class="town-feature-distance-badge" id="townFeatureDistance">~3,8 km • 6 min do Solar</span>
+                  <h3 id="townFeatureTitle">Manteigas</h3>
+                  <span class="town-feature-distance-badge" id="townFeatureDistance">~2,5 km • 5 min do Solar</span>
                 </div>
               </div>
-              <p class="town-feature-description" id="townFeatureDesc">Uma das quedas de água mais deslumbrantes de Portugal, onde a Ribeira de Leandres precipita-se numa lagoa cristalina rodeada por teixos e carvalhais raros.</p>
+              <p class="town-feature-description" id="townFeatureDesc">Coração da Serra da Estrela, terra de vales glaciares, florestas seculares de faias e castanheiros, águas puras e a arte viva da tecelagem de burel.</p>
               <div class="town-feature-highlights-box">
                 <span class="highlights-mini-title">Destaques Imperdíveis da Região</span>
                 <ul class="town-feature-highlights-list" id="townFeatureHighlights">
-                  <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Cascata Monumental de 10 Metros</span></li>
+                  <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Cascata Monumental do Poço do Inferno</span></li>
                 </ul>
               </div>
             </div>
           </article>
 
-          <!-- Card 1: Poço do Inferno (Natureza / Manteigas) -->
-          <article class="activity-card" data-town="pocodoinferno" data-category="natureza">
+          <!-- 1. Poço do Inferno (Manteigas | Natureza e Passeios) -->
+          <article class="activity-card" data-town="manteigas" data-category="natureza">
             <div class="activity-media">
               <img src="assets/images/activity_poco_inferno.jpg" alt="Cascata do Poço do Inferno" loading="lazy">
             </div>
@@ -632,15 +630,13 @@
                 <h3 class="activity-title">Cascata do Poço do Inferno</h3>
                 <span class="activity-distance">3,8 km • 6 min</span>
               </div>
-              <p class="activity-desc">Uma monumental queda de água com mais de 10 metros de altura, esculpida na rocha xistosa da Ribeira de Leandres, situada na mesma estrada florestal do Solar.</p>
-              <div class="activity-footer">
-                <span class="activity-time-tag">Percurso Fácil • Acesso Direto</span>
-              </div>
+              <div class="activity-location">Manteigas, Serra da Estrela</div>
+              <p class="activity-desc">Uma queda de água monumental esculpida nas rochas da Ribeira de Leandres, onde a água cristalina e o bosque de teixos raros criam um recanto selvagem inesquecível.</p>
             </div>
           </article>
 
-          <!-- Card 2: Rota das Faias (Natureza / Faias) -->
-          <article class="activity-card" data-town="faias" data-category="natureza">
+          <!-- 2. Rota das Faias (Manteigas | Natureza e Passeios) -->
+          <article class="activity-card" data-town="manteigas" data-category="natureza">
             <div class="activity-media">
               <img src="assets/images/activity_rota_faias.jpg" alt="Trilho da Rota das Faias" loading="lazy">
             </div>
@@ -649,78 +645,113 @@
                 <h3 class="activity-title">Rota das Faias de São Lourenço</h3>
                 <span class="activity-distance">4,5 km • 8 min</span>
               </div>
-              <p class="activity-desc">O percurso pedestre mais icónico e poético da Serra da Estrela, atravessando um denso bosque de faias e castanheiros com cores outonais douradas de cortar a respiração.</p>
-              <div class="activity-footer">
-                <span class="activity-time-tag">Percurso Circular • 5,4 km</span>
-              </div>
+              <div class="activity-location">Manteigas, Serra da Estrela</div>
+              <p class="activity-desc">O percurso pedestre mais poético da serra. Caminhe sob a abóbada dourada de faias e castanheiros centenários ao som relaxante das folhas ao vento.</p>
             </div>
           </article>
 
-          <!-- Card 3: Vale Glaciar do Zêzere (Natureza / Vale Glaciar) -->
-          <article class="activity-card" data-town="valeglaciar" data-category="natureza">
+          <!-- 3. Vale Glaciar do Zêzere (Manteigas | Natureza e Passeios) -->
+          <article class="activity-card" data-town="manteigas" data-category="natureza">
             <div class="activity-media">
-              <img src="assets/images/activity_vale_glaciar.jpg" alt="Vale Glaciar do Rio Zêzere" loading="lazy">
+              <img src="assets/images/activity_vale_glaciar.jpg" alt="Vale Glaciar do Zêzere" loading="lazy">
             </div>
             <div class="activity-body">
               <div class="activity-header">
                 <h3 class="activity-title">Vale Glaciar do Zêzere</h3>
-                <span class="activity-distance">9 km • 12 min</span>
+                <span class="activity-distance">8,5 km • 12 min</span>
               </div>
-              <p class="activity-desc">O maior vale em forma de U de origem glaciar da Europa (13 km), com as suas emblemáticas cortes de pastores em granito e paisagens geológicas da UNESCO.</p>
-              <div class="activity-footer">
-                <span class="activity-time-tag">Estrela Geopark Mundial</span>
-              </div>
+              <div class="activity-location">Manteigas, Serra da Estrela</div>
+              <p class="activity-desc">O maior vale em forma de U de origem glaciar da Europa com 13 km de extensão, pontuado por típicas cortes de pastor em granito e paisagens da UNESCO.</p>
             </div>
           </article>
 
-          <!-- Card 4: Vila de Manteigas & Burel Factory (Património / Manteigas) -->
+          <!-- 4. Burel Factory & Manteigas (Manteigas | Monumentos e Património) -->
           <article class="activity-card" data-town="manteigas" data-category="patrimonio">
             <div class="activity-media">
-              <img src="assets/images/activity_manteigas_vila.jpg" alt="Centro histórico de Manteigas" loading="lazy">
+              <img src="assets/images/activity_manteigas_vila.jpg" alt="Vila de Manteigas e Fábrica do Burel" loading="lazy">
             </div>
             <div class="activity-body">
               <div class="activity-header">
-                <h3 class="activity-title">Manteigas &amp; Burel Factory</h3>
+                <h3 class="activity-title">Fábrica do Burel &amp; Manteigas</h3>
                 <span class="activity-distance">2,5 km • 5 min</span>
               </div>
-              <p class="activity-desc">A vila serrana no coração do vale, célebre pela arte secular da tecelagem de burel em teares do século XIX e pelo encanto das ruelas e fontes de água pura.</p>
-              <div class="activity-footer">
-                <span class="activity-time-tag">Visita Cultural &amp; Lojas de Burel</span>
-              </div>
+              <div class="activity-location">Manteigas, Serra da Estrela</div>
+              <p class="activity-desc">A arte ancestral de transformar a lã pura dos pastores em tecidos térmicos em teares do século XIX, no encanto histórico da vila serrana.</p>
             </div>
           </article>
 
-          <!-- Card 5: Torre e Neve no Maciço Central (Natureza / Torre) -->
-          <article class="activity-card" data-town="torre" data-category="natureza">
-            <div class="activity-media">
-              <img src="assets/images/activity_torre_neve.jpg" alt="Torre da Serra da Estrela com neve" loading="lazy">
-            </div>
-            <div class="activity-body">
-              <div class="activity-header">
-                <h3 class="activity-title">Torre &amp; Planalto da Serra</h3>
-                <span class="activity-distance">22 km • 28 min</span>
-              </div>
-              <p class="activity-desc">O topo de Portugal Continental a 1993 metros de altitude. Paisagem monumental de rocha e neve no inverno, com miradouros panorâmicos sobre as serras vizinhas.</p>
-              <div class="activity-footer">
-                <span class="activity-time-tag">Altitude 1993 m • Neve no Inverno</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 6: Queijo da Serra da Estrela DOP (Gastronomia / Manteigas) -->
+          <!-- 5. Queijo da Serra da Estrela DOP (Manteigas | Gastronomia) -->
           <article class="activity-card" data-town="manteigas" data-category="gastronomia">
             <div class="activity-media">
-              <img src="assets/images/activity_queijo_serra.jpg" alt="Queijo da Serra da Estrela curado e amanteigado" loading="lazy">
+              <img src="assets/images/activity_queijo_serra.jpg" alt="Queijo da Serra da Estrela DOP" loading="lazy">
             </div>
             <div class="activity-body">
               <div class="activity-header">
                 <h3 class="activity-title">Queijo da Serra da Estrela DOP</h3>
-                <span class="activity-distance">Na Unidade &amp; Produtores</span>
+                <span class="activity-distance">2 km • 4 min</span>
               </div>
-              <p class="activity-desc">A joia da gastronomia portuguesa, produzido com leite cru de ovelha bordaleira e flor de cardo silvestre. Amanteigado inconfundível para degustar com pão de centeio.</p>
-              <div class="activity-footer">
-                <span class="activity-time-tag">Património Gastronómico DOP</span>
+              <div class="activity-location">Manteigas, Serra da Estrela</div>
+              <p class="activity-desc">O mais afamado queijo de montanha em Portugal, amanteigado e de sabor nobre, feito à mão com leite de ovelha bordaleira e flor de cardo silvestre.</p>
+            </div>
+          </article>
+
+          <!-- 6. Aldeia Típica do Sabugueiro (Seia | Monumentos e Património) -->
+          <article class="activity-card" data-town="seia" data-category="patrimonio">
+            <div class="activity-media">
+              <img src="assets/images/activity_seia_sabugueiro.jpg" alt="Aldeia Típica do Sabugueiro" loading="lazy">
+            </div>
+            <div class="activity-body">
+              <div class="activity-header">
+                <h3 class="activity-title">Aldeia Típica do Sabugueiro</h3>
+                <span class="activity-distance">18 km • 22 min</span>
               </div>
+              <div class="activity-location">Seia, Serra da Estrela</div>
+              <p class="activity-desc">A povoação habitada mais alta de Portugal, preservando ruelas em cantaria de granito escuro, canastros de centeio e o genuíno espírito dos pastores.</p>
+            </div>
+          </article>
+
+          <!-- 7. Forno Comunitário & Fumeiro de Seia (Seia | Gastronomia) -->
+          <article class="activity-card" data-town="seia" data-category="gastronomia">
+            <div class="activity-media">
+              <img src="assets/images/activity_trutas_manteigas.jpg" alt="Tradição gastronómica de Seia" loading="lazy">
+            </div>
+            <div class="activity-body">
+              <div class="activity-header">
+                <h3 class="activity-title">Fornos a Lenha &amp; Fumeiro de Seia</h3>
+                <span class="activity-distance">25 km • 30 min</span>
+              </div>
+              <div class="activity-location">Seia, Serra da Estrela</div>
+              <p class="activity-desc">Sabores ancestrais da encosta ocidental: o pão de centeio em forno a lenha, enchidos curados ao fumo de carvalho e requeijão com doce de abóbora.</p>
+            </div>
+          </article>
+
+          <!-- 8. Museu dos Lanifícios (Covilhã | Monumentos e Património) -->
+          <article class="activity-card" data-town="covilha" data-category="patrimonio">
+            <div class="activity-media">
+              <img src="assets/images/activity_covilha_lanificios.jpg" alt="Museu dos Lanifícios na Covilhã" loading="lazy">
+            </div>
+            <div class="activity-body">
+              <div class="activity-header">
+                <h3 class="activity-title">Museu dos Lanifícios &amp; Real Fábrica</h3>
+                <span class="activity-distance">24 km • 30 min</span>
+              </div>
+              <div class="activity-location">Covilhã, Serra da Estrela</div>
+              <p class="activity-desc">Um dos museus industriais mais fascinantes do país, instalado nas tinturarias setecentistas da Real Fábrica mandada erguer pelo Marquês de Pombal.</p>
+            </div>
+          </article>
+
+          <!-- 9. Torre & Miradouros do Maciço Central (Covilhã | Natureza e Passeios) -->
+          <article class="activity-card" data-town="covilha" data-category="natureza">
+            <div class="activity-media">
+              <img src="assets/images/activity_torre_neve.jpg" alt="Torre da Serra da Estrela" loading="lazy">
+            </div>
+            <div class="activity-body">
+              <div class="activity-header">
+                <h3 class="activity-title">Torre &amp; Maciço Central</h3>
+                <span class="activity-distance">22 km • 28 min</span>
+              </div>
+              <div class="activity-location">Covilhã, Serra da Estrela</div>
+              <p class="activity-desc">O cume de Portugal Continental a 1993 metros de altitude, onde o ar puro de montanha descobre horizontes sem fim sobre a serra e a Cova da Beira.</p>
             </div>
           </article>
 
