@@ -1756,6 +1756,21 @@ img {
   align-items: center;
 }
 
+/* Secção do Solar com Margens Reduzidas e Espaço Alargado */
+.container-wide,
+#experiencia .container {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+.solar-experience-grid {
+  grid-template-columns: 1.08fr 1fr;
+  gap: 2.75rem;
+  align-items: center;
+}
+
 .two-cols-reversed {
   direction: rtl;
 }
@@ -1796,7 +1811,7 @@ img {
   border-radius: var(--border-radius-md);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -1809,7 +1824,7 @@ img {
 
 .showcase-track {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   width: max-content;
   will-change: transform;
 }
@@ -1836,13 +1851,14 @@ img {
   100% { transform: translate3d(0, 0, 0); }
 }
 
+/* Imagens da montra fotográfica ampliadas */
 .showcase-slide {
-  width: 220px;
-  height: 200px;
+  width: 270px;
+  height: 235px;
   flex-shrink: 0;
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
   border: 1px solid var(--border-color);
   background: var(--bg-light);
 }
@@ -1862,7 +1878,9 @@ img {
 @media (max-width: 992px) {
   .showcase-wrap { gap: 10px; }
   .showcase-track { gap: 10px; }
-  .showcase-slide { width: 175px; height: 160px; }
+  .showcase-slide { width: 195px; height: 170px; }
+  .solar-experience-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
 }
 
 @media (max-width: 640px) {
