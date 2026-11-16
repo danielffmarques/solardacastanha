@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * 1. Cabeçalho Dinâmico com Transição Suave ao Scroll (Scrolled State)
- * E controlo progressivo da transição da aba suspensa e visibilidade do CTA
+ * E controlo progressivo da visibilidade do botão CTA de reserva
  */
 function initScrollHeader() {
   const header = document.querySelector('.header');
@@ -38,17 +38,8 @@ function initScrollHeader() {
   const onScroll = () => {
     const scrollY = window.scrollY || window.pageYOffset;
     
-    // 2 scrolls completos (~220px) para a transição progressiva da aba do logo
-    const maxScroll = 220;
-    const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
-    
-    header.style.setProperty('--scroll-p', progress.toFixed(3));
-    
-    if (progress >= 1) {
-      header.classList.add('header-scrolled');
-    } else {
-      header.classList.remove('header-scrolled');
-    }
+    // Estado de cabeçalho scrolled
+    header.classList.toggle('header-scrolled', scrollY > 40);
 
     // CTA do Header condicionado ao scroll: surge quando a barra do Hero sai do viewport
     if (heroBookingWrapper && window.innerWidth > 768) {
@@ -56,7 +47,7 @@ function initScrollHeader() {
       const isHeroCtaOut = rect.bottom <= 80;
       header.classList.toggle('header-cta-visible', isHeroCtaOut);
     } else {
-      header.classList.toggle('header-cta-visible', scrollY > 280);
+      header.classList.toggle('header-cta-visible', scrollY > 260);
     }
 
     ticking = false;
@@ -142,16 +133,23 @@ function initScrollReveal() {
 }
 
 /**
- * 3. Menu Mobile Toggle
+ * 3. Menu Mobile Toggle com Suporte a Escape e Fecho ao Clicar Fora
  */
 function initMobileMenu() {
   const menuBtn = document.querySelector('.mobile-menu-btn');
   const navMenu = document.querySelector('.neptun-nav') || document.querySelector('.nav-menu');
 
   if (menuBtn && navMenu) {
-    menuBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const isExpanded = navMenu.classList.contains('active');
+    const closeMenu = () => {
+      navMenu.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Abrir Menu');
+      menuBtn.innerHTML = '<svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>';
+    };
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = navMenu.classList.toggle('active');
       menuBtn.setAttribute('aria-expanded', isExpanded);
       menuBtn.setAttribute('aria-label', isExpanded ? 'Fechar Menu' : 'Abrir Menu');
       menuBtn.innerHTML = isExpanded 
@@ -159,14 +157,23 @@ function initMobileMenu() {
         : '<svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>';
     });
 
-    // Fechar ao clicar num link de âncora
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.setAttribute('aria-label', 'Abrir Menu');
-        menuBtn.innerHTML = '<svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>';
-      });
+    // Fechar ao clicar num link de navegação
+    navMenu.querySelectorAll('.nav-link, .mobile-nav-cta').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Fechar ao premir tecla Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMenu();
+      }
+    });
+
+    // Fechar ao clicar fora da gaveta de navegação
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeMenu();
+      }
     });
   }
 }
@@ -211,7 +218,7 @@ function initHorizontalBookingBar() {
 }
 
 /**
- * 5. Acordeão em Ficheiro das Acomodações do Solar (Estilo File Drawer)
+ * 5. Acordeão em Ficheiro das Acomodações do Solar (Estilo File Drawer Fluido)
  */
 function initSolarRoomsAccordion() {
   const accordion = document.getElementById('housesAccordion');
@@ -240,16 +247,6 @@ function initSolarRoomsAccordion() {
         }
         item.classList.add('active');
         header.setAttribute('aria-expanded', 'true');
-
-        // Scroll suave suave até ao cabeçalho da habitação aberta
-        setTimeout(() => {
-          const rect = item.getBoundingClientRect();
-          if (rect.top < 80 || rect.top > window.innerHeight * 0.5) {
-            const headerOffset = 90;
-            const targetY = window.pageYOffset + rect.top - headerOffset;
-            window.scrollTo({ top: targetY, behavior: 'smooth' });
-          }
-        }, 150);
       }
     });
 
@@ -319,7 +316,7 @@ function initUnitCarousel(item) {
 
 /**
  * 6. Carrossel / Ticker Suave de Avaliações em Rotação Contínua e Sem Fim
- * Com suporte nativo a drag por rato, touch em dispositivos móveis e pausa na passagem do cursor
+ * Com suporte nativo a drag por rato, inércia suave, touch e pausa ao passar o cursor
  */
 function initReviewsInteractiveScroll() {
   const wrapper = document.querySelector('.reviews-ticker-wrapper');
@@ -330,8 +327,10 @@ function initReviewsInteractiveScroll() {
   let isHovered = false;
   let startX = 0;
   let currentX = 0;
+  let velocity = 0;
+  let lastMoveTime = 0;
   let animId = null;
-  const speed = 0.55; // Velocidade fluida (~33px/s a 60fps)
+  const baseSpeed = 0.55; // Velocidade suave e contínua (~33px/s)
 
   // Metade da largura total do track (os 7 cartões originais)
   function getHalfWidth() {
@@ -339,21 +338,39 @@ function initReviewsInteractiveScroll() {
   }
 
   function render() {
-    if (!isDown && !isHovered) {
-      currentX -= speed;
+    if (!isDown) {
+      if (Math.abs(velocity) > 0.05) {
+        currentX += velocity;
+        velocity *= 0.94; // Decaimento orgânico de inércia
+      } else if (!isHovered) {
+        currentX -= baseSpeed;
+      }
       const halfWidth = getHalfWidth();
-      if (halfWidth > 0 && Math.abs(currentX) >= halfWidth) {
-        currentX += halfWidth; // Loop infinito contínuo e impercetível
+      if (halfWidth > 0) {
+        if (currentX <= -halfWidth) {
+          currentX += halfWidth;
+        } else if (currentX > 0) {
+          currentX -= halfWidth;
+        }
       }
       track.style.transform = `translate3d(${currentX}px, 0, 0)`;
     }
     animId = requestAnimationFrame(render);
   }
 
-  // Iniciar carrossel rotativo
+  // Iniciar loop contínuo
   animId = requestAnimationFrame(render);
 
-  // Pausa ao passar o cursor para leitura atenta
+  // Pausar renderização quando a aba fica em segundo plano para poupar bateria
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (animId) cancelAnimationFrame(animId);
+    } else {
+      animId = requestAnimationFrame(render);
+    }
+  });
+
+  // Pausa ao passar o cursor para leitura calma
   wrapper.addEventListener('mouseenter', () => {
     isHovered = true;
   });
@@ -366,11 +383,13 @@ function initReviewsInteractiveScroll() {
     }
   });
 
-  // Arrastamento por Rato (Drag)
+  // Arrastamento por Rato (Drag) com medição de velocidade
   wrapper.addEventListener('mousedown', (e) => {
     isDown = true;
+    velocity = 0;
     wrapper.classList.add('is-dragging');
     startX = e.pageX;
+    lastMoveTime = performance.now();
   });
 
   window.addEventListener('mouseup', () => {
@@ -381,8 +400,15 @@ function initReviewsInteractiveScroll() {
 
   window.addEventListener('mousemove', (e) => {
     if (!isDown) return;
+    e.preventDefault();
+    const now = performance.now();
+    const dt = Math.max(1, now - lastMoveTime);
     const deltaX = e.pageX - startX;
     startX = e.pageX;
+    lastMoveTime = now;
+
+    // Velocidade normalizada para 60fps
+    velocity = (deltaX / dt) * 16;
     currentX += deltaX;
 
     const halfWidth = getHalfWidth();
@@ -396,11 +422,13 @@ function initReviewsInteractiveScroll() {
     track.style.transform = `translate3d(${currentX}px, 0, 0)`;
   });
 
-  // Suporte Touch (Mobile / Tablet)
+  // Suporte Touch (Mobile / Tablet) com inércia
   let touchStartX = 0;
   wrapper.addEventListener('touchstart', (e) => {
     isDown = true;
+    velocity = 0;
     touchStartX = e.touches[0].pageX;
+    lastMoveTime = performance.now();
   }, { passive: true });
 
   window.addEventListener('touchend', () => {
@@ -410,9 +438,14 @@ function initReviewsInteractiveScroll() {
 
   wrapper.addEventListener('touchmove', (e) => {
     if (!isDown) return;
+    const now = performance.now();
+    const dt = Math.max(1, now - lastMoveTime);
     const currentTouchX = e.touches[0].pageX;
     const deltaX = currentTouchX - touchStartX;
     touchStartX = currentTouchX;
+    lastMoveTime = now;
+
+    velocity = (deltaX / dt) * 16;
     currentX += deltaX;
 
     const halfWidth = getHalfWidth();
