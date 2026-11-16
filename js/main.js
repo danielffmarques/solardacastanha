@@ -438,7 +438,7 @@ function initActivitiesTabs() {
   };
 
   let currentPage = 1;
-  const cardsPerPage = 6;
+  const cardsPerPage = 9;
   let filteredCards = [...allCards];
 
   function applyFilters() {
