@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas - Solar da Castanha | Forest House em Manteigas</title>
+  <meta name="description" content="Reserve a sua estadia no Solar da Castanha – Forest House em Manteigas, Serra da Estrela. Pequeno-almoço serrano incluído, lareira de montanha e pagamento seguro online.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="booking-page-body">
+
+  <!-- =========================================================================
+       HEADER DA PÁGINA DE RESERVAS (Limpo, Elegante e Proporcional)
+       ========================================================================= -->
+  <header class="header booking-header">
+    <div class="container nav-container">
+      <a href="index.html" class="booking-logo-wrap" aria-label="Solar da Castanha — Página Inicial">
+        <img src="assets/logos/logo.svg" alt="Solar da Castanha" class="booking-logo-img">
+        <div class="booking-brand-meta">
+          <span class="booking-brand-location">Manteigas, Guarda</span>
+        </div>
+      </a>
+      <div class="booking-header-actions">
+        <a href="index.html" class="btn btn-outline-dark booking-back-btn">
+          <span class="booking-back-full">&larr; Voltar ao Website</span>
+          <span class="booking-back-short">&larr; Início</span>
+        </a>
+        <a href="tel:+351919926167" class="nav-contact-link booking-phone-btn" aria-label="Ligar para +351 919 926 167">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span class="booking-phone-text">+351 919 926 167</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       CONTEÚDO PRINCIPAL DE RESERVAS (Passo a Passo Sequencial / Wizard)
+       ========================================================================= -->
+  <main class="section" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <div class="container">
+      
+      <div style="margin-bottom: 2rem;">
+        <h2 style="margin: 0 0 0.4rem 0;">Reservar Estadia — Solar da Castanha</h2>
+        <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;">
+          Reserve diretamente connosco com a melhor tarifa garantida, pequeno-almoço serrano incluído e cancelamento flexível.
+        </p>
+      </div>
+
+      <div class="booking-page-layout">
+        <!-- Coluna Esquerda: Passos Sequenciais de Reserva -->
+        <div class="booking-steps-col">
+
+          <form id="dedicatedBookingForm">
+
+            <!-- ==============================================================
+                 PASSO 1: Datas da Estadia e Número de Hóspedes
+                 ============================================================== -->
+            <div class="booking-step-block active" id="stepBlock1">
+              <div class="booking-step-title">
+                <span class="booking-step-num">1</span>
+                <span>Datas da Estadia e Hóspedes</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Escolha o intervalo de datas pretendido para verificar a disponibilidade nos nossos quartos e suites:
+              </p>
+
+              <div class="booking-dates-guests-grid">
+                <div class="form-group">
+                  <label for="bookCheckin" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.35rem;">Data de Check-in</label>
+                  <div class="date-input-container">
+                    <input type="text" id="bookCheckin" name="checkin" class="form-control" placeholder="DD/MM/AAAA" autocomplete="off" required>
+                    <button type="button" class="date-calendar-btn" aria-label="Escolher data de check-in">
+                      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="bookCheckout" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.35rem;">Data de Check-out</label>
+                  <div class="date-input-container">
+                    <input type="text" id="bookCheckout" name="checkout" class="form-control" placeholder="DD/MM/AAAA" autocomplete="off" required>
+                    <button type="button" class="date-calendar-btn" aria-label="Escolher data de check-out">
+                      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="bookGuests" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.35rem;">Número de Hóspedes</label>
+                  <select id="bookGuests" name="guests" class="form-control" style="height: 48px;">
+                    <option value="1 Hóspede">1 Hóspede</option>
+                    <option value="2 Hóspedes" selected>2 Hóspedes</option>
+                    <option value="3 Hóspedes">3 Hóspedes</option>
+                    <option value="4 Hóspedes">4 Hóspedes</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- ==============================================================
+                 PASSO 2: Seleção da Acomodação & Experiências Regionais
+                 ============================================================== -->
+            <div class="booking-step-block active" id="stepBlock2" style="margin-top: 2rem;">
+              <div class="booking-step-title">
+                <span class="booking-step-num">2</span>
+                <span>Escolha da Acomodação &amp; Experiências</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Selecione o quarto ou suite ideal para a sua estadia no bosque de Manteigas:
+              </p>
+
+              <div class="units-selection-list">
+                <!-- Unidade 1: Suite Tentilhão -->
+                <label class="unit-option-card">
+                  <input type="radio" name="book_unit" value="tentilhao" checked>
+                  <div class="unit-option-content">
+                    <div class="unit-option-img-col">
+                      <img src="assets/images/interior_quarto.jpg" alt="Suite Tentilhão">
+                    </div>
+                    <div class="unit-option-info-col">
+                      <div class="unit-option-head">
+                        <div>
+                          <h4 class="unit-option-title">Suite Tentilhão (~26 m²)</h4>
+                          <span class="unit-option-meta">Até 4 Hóspedes • Cama King-Size • Varanda Panorâmica • Salamandra</span>
+                        </div>
+                        <div class="unit-option-price-tag">
+                          <strong>125 €</strong> <small>/ noite</small>
+                        </div>
+                      </div>
+                      <p class="unit-option-desc">
+                        A maior suite do Solar da Castanha, com vista panorâmica para o souto secular, vigas em madeira de castanheiro e salamandra acolhedora de montanha.
+                      </p>
+                      <span class="unit-option-pill">Pequeno-Almoço Serrano Incluído</span>
+                    </div>
+                  </div>
+                </label>
+
+                <!-- Unidade 2: Quarto Esquilo -->
+                <label class="unit-option-card">
+                  <input type="radio" name="book_unit" value="esquilo">
+                  <div class="unit-option-content">
+                    <div class="unit-option-img-col">
+                      <img src="assets/images/avos_1.jpg" alt="Quarto Esquilo">
+                    </div>
+                    <div class="unit-option-info-col">
+                      <div class="unit-option-head">
+                        <div>
+                          <h4 class="unit-option-title">Quarto Esquilo (~15 m²)</h4>
+                          <span class="unit-option-meta">Até 4 Hóspedes • Granito Original de 1888 • Madeira de Bétula</span>
+                        </div>
+                        <div class="unit-option-price-tag">
+                          <strong>95 €</strong> <small>/ noite</small>
+                        </div>
+                      </div>
+                      <p class="unit-option-desc">
+                        Paredes seculares em granito da casa do guarda-florestal, recanto de leitura sobre a copa dos castanheiros e aconchego térmico em lã bordaleira.
+                      </p>
+                      <span class="unit-option-pill">Pequeno-Almoço Serrano Incluído</span>
+                    </div>
+                  </div>
+                </label>
+
+                <!-- Unidade 3: Quarto Raposa -->
+                <label class="unit-option-card">
+                  <input type="radio" name="book_unit" value="raposa">
+                  <div class="unit-option-content">
+                    <div class="unit-option-img-col">
+                      <img src="assets/images/adega_1.jpg" alt="Quarto Raposa">
+                    </div>
+                    <div class="unit-option-info-col">
+                      <div class="unit-option-head">
+                        <div>
+                          <h4 class="unit-option-title">Quarto Raposa (~12 m²)</h4>
+                          <span class="unit-option-meta">Até 3 Hóspedes • Som da Ribeira • Intimista &amp; Romântico</span>
+                        </div>
+                        <div class="unit-option-price-tag">
+                          <strong>85 €</strong> <small>/ noite</small>
+                        </div>
+                      </div>
+                      <p class="unit-option-desc">
+                        Espaço acolhedor e sereno com o rumor relaxante da Ribeira de Leandres e vista desafogada para a encosta florestal. Perfeito para casais.
+                      </p>
+                      <span class="unit-option-pill">Pequeno-Almoço Serrano Incluído</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Extras Regionais de Hospitalidade -->
+              <div style="margin-top: 1.5rem; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 1.25rem;">
+                <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--dark-neutral);">Experiências &amp; Miminhos Regionais de Boas-Vindas</h4>
+                
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                  <label style="display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer;">
+                    <input type="checkbox" name="book_extras" value="cesta_boasvindas" style="margin-top: 0.25rem;">
+                    <div>
+                      <span style="font-weight: 600; font-size: 0.9rem; color: var(--dark-neutral);">Cesta Serrana de Boas-Vindas (+25 €)</span>
+                      <p style="font-size: 0.82rem; margin: 0; color: var(--text-secondary);">Um queijo da Serra da Estrela amanteigado DOP inteiro, frasco de compota caseira de castanhas, pão de centeio quente e infusão da montanha à chegada.</p>
+                    </div>
+                  </label>
+
+                  <label style="display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer;">
+                    <input type="checkbox" name="book_extras" value="piquenique_trilhos" style="margin-top: 0.25rem;">
+                    <div>
+                      <span style="font-weight: 600; font-size: 0.9rem; color: var(--dark-neutral);">Mochila de Piquenique para Trilhos (+18 € / pessoa)</span>
+                      <p style="font-size: 0.82rem; margin: 0; color: var(--text-secondary);">Sanduíches rústicas em pão de centeio, queijo serrano curado, fruta fresca, frutos secos e água de nascente para explorar o Poço do Inferno e Rota das Faias.</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- ==============================================================
+                 PASSO 3: Dados Pessoais do Titular & Faturação Opcional com NIF
+                 (Padrão Obrigatório de Faturação Bruto — Regra 8)
+                 ============================================================== -->
+            <div class="booking-step-block active" id="stepBlock3" style="margin-top: 2rem;">
+              <div class="booking-step-title">
+                <span class="booking-step-num">3</span>
+                <span>Dados do Titular &amp; Faturação</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Indique os dados de contacto para o envio da confirmação e alinhamento do acolhimento com a anfitriã D. Ilda:
+              </p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group" style="grid-column: span 2;">
+                  <label for="bookName" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.35rem;">Nome Completo do Titular</label>
+                  <input type="text" id="bookName" class="form-control" placeholder="Ex.: Rodrigo Miguel Silveira" required>
+                </div>
+                <div class="form-group">
+                  <label for="bookEmail" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.35rem;">E-mail de Confirmação</label>
+                  <input type="email" id="bookEmail" class="form-control" placeholder="exemplo@email.pt" required>
+                </div>
+                <div class="form-group">
+                  <label for="bookPhone" style="font-weight: 600; font-size: 0.88rem; margin-bottom: 0.35rem;">Telemóvel / WhatsApp</label>
+                  <input type="tel" id="bookPhone" class="form-control" placeholder="+351 910 000 000" required>
+                </div>
+              </div>
+
+              <!-- BLOCO DE FATURAÇÃO OPCIONAL (NIF) — REGRA 8 BRUTO -->
+              <div style="margin-top: 1.25rem; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+                <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer; user-select: none;">
+                  <input type="checkbox" id="invoiceToggle" style="width: 17px; height: 17px;">
+                  <span style="font-weight: 600; font-size: 0.9rem; color: var(--dark-neutral);">
+                    Desejo fatura com contribuinte (NIF)
+                  </span>
+                </label>
+
+                <!-- Campos de Faturação Expansíveis -->
+                <div id="invoiceFields" style="display: none; margin-top: 1rem; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 1.25rem;">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                      <label for="invoiceNif" style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem;">NIF / NIPC</label>
+                      <input type="text" id="invoiceNif" class="form-control" placeholder="123456789">
+                    </div>
+                    <div class="form-group">
+                      <label for="invoiceName" style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem;">Nome Fiscal ou Empresa</label>
+                      <input type="text" id="invoiceName" class="form-control" placeholder="Nome que constará na fatura">
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                      <label for="invoiceAddress" style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem;">Morada de Faturação</label>
+                      <input type="text" id="invoiceAddress" class="form-control" placeholder="Rua, número e andar">
+                    </div>
+                    <div class="form-group">
+                      <label for="invoicePostal" style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem;">Código Postal</label>
+                      <input type="text" id="invoicePostal" class="form-control" placeholder="0000-000">
+                    </div>
+                    <div class="form-group">
+                      <label for="invoiceCity" style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem;">Localidade / Cidade</label>
+                      <input type="text" id="invoiceCity" class="form-control" placeholder="Ex.: Lisboa">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ==============================================================
+                 PASSO 4: Pagamento Seguro Imediato no Momento (Regra 8 Bruto)
+                 ============================================================== -->
+            <div class="booking-step-block active" id="stepBlock4" style="margin-top: 2rem;">
+              <div class="booking-step-title">
+                <span class="booking-step-num">4</span>
+                <span>Pagamento Seguro no Momento</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Escolha o método de pagamento preferido para confirmar a sua reserva no Solar da Castanha:
+              </p>
+
+              <!-- Seletor de Métodos de Pagamento -->
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.25rem;">
+                <label class="payment-method-card" style="border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 0.85rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; background: #fff;">
+                  <input type="radio" name="payment_method" value="card" checked>
+                  <span style="font-weight: 600; font-size: 0.88rem;">Cartão Bancário</span>
+                </label>
+                <label class="payment-method-card" style="border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 0.85rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; background: #fff;">
+                  <input type="radio" name="payment_method" value="mbway">
+                  <span style="font-weight: 600; font-size: 0.88rem;">MB WAY</span>
+                </label>
+                <label class="payment-method-card" style="border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 0.85rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; background: #fff;">
+                  <input type="radio" name="payment_method" value="multibanco">
+                  <span style="font-weight: 600; font-size: 0.88rem;">Multibanco</span>
+                </label>
+              </div>
+
+              <!-- Detalhes do Cartão -->
+              <div id="paymentDetailsCard" style="background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 1.25rem;">
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.75rem;">
+                  <div class="form-group" style="grid-column: span 3;">
+                    <label style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.25rem;">Número do Cartão (Visa / Mastercard / Amex)</label>
+                    <input type="text" class="form-control" placeholder="•••• •••• •••• ••••" maxlength="19">
+                  </div>
+                  <div class="form-group" style="grid-column: span 2;">
+                    <label style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.25rem;">Validade</label>
+                    <input type="text" class="form-control" placeholder="MM/AA" maxlength="5">
+                  </div>
+                  <div class="form-group">
+                    <label style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.25rem;">CVC / CVV</label>
+                    <input type="text" class="form-control" placeholder="•••" maxlength="4">
+                  </div>
+                </div>
+                <div style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--text-muted);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span>Transação com encriptação SSL de 256 bits e autenticação 3D Secure.</span>
+                </div>
+              </div>
+
+              <!-- Detalhes do MB WAY -->
+              <div id="paymentDetailsMbway" style="display: none; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 1.25rem;">
+                <div class="form-group">
+                  <label style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.25rem;">Número de Telemóvel MB WAY</label>
+                  <input type="tel" class="form-control" placeholder="910 000 000" maxlength="9">
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.5rem 0 0 0;">
+                  Receberá uma notificação instantânea na sua aplicação MB WAY para autorizar o pagamento no prazo de 5 minutos.
+                </p>
+              </div>
+
+              <!-- Detalhes da Referência Multibanco -->
+              <div id="paymentDetailsMultibanco" style="display: none; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 1.25rem;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; text-align: center;">
+                  <div style="background: #fff; padding: 0.6rem; border-radius: 4px; border: 1px solid var(--border-color);">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Entidade</span>
+                    <strong style="font-size: 1.05rem; color: var(--dark-neutral);">21245</strong>
+                  </div>
+                  <div style="background: #fff; padding: 0.6rem; border-radius: 4px; border: 1px solid var(--border-color);">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Referência</span>
+                    <strong style="font-size: 1.05rem; color: var(--dark-neutral);">928 412 844</strong>
+                  </div>
+                  <div style="background: #fff; padding: 0.6rem; border-radius: 4px; border: 1px solid var(--border-color);">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Validade</span>
+                    <strong style="font-size: 1.05rem; color: var(--dark-neutral);">24 horas</strong>
+                  </div>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.6rem 0 0 0;">
+                  Os dados da referência serão enviados por e-mail e SMS após a confirmação.
+                </p>
+              </div>
+
+              <!-- Botão Principal de Confirmação e Pagamento -->
+              <div style="margin-top: 1.5rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; height: 52px; font-size: 1.05rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                  <span>Confirmar Reserva e Pagar Agora (<span id="payButtonAmount">250 €</span>)</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
+                  <span>Cancelamento Flexível</span>
+                  <span>•</span>
+                  <span>Sem Taxas de Reserva Ocultas</span>
+                  <span>•</span>
+                  <span>Pequeno-Almoço Incluído</span>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Coluna Direita: Resumo Lateral Fixo (Sticky) -->
+        <aside class="booking-summary-col">
+          <div class="booking-summary-card-sticky">
+            <h3 class="booking-summary-title">Resumo da Sua Estadia</h3>
+            
+            <div class="booking-summary-row">
+              <span class="summary-label">Acomodação:</span>
+              <strong class="summary-value" id="summaryUnitName">Suite Tentilhão</strong>
+            </div>
+
+            <div class="booking-summary-row">
+              <span class="summary-label">Datas:</span>
+              <span class="summary-value" id="summaryDatesText">A definir</span>
+            </div>
+
+            <div class="booking-summary-row">
+              <span class="summary-label">Duração:</span>
+              <strong class="summary-value" id="summaryNightsCount">2 noites</strong>
+            </div>
+
+            <div class="booking-summary-row">
+              <span class="summary-label">Hóspedes:</span>
+              <span class="summary-value" id="summaryGuestsCount">2 Hóspedes</span>
+            </div>
+
+            <div class="booking-summary-row">
+              <span class="summary-label">Pequeno-Almoço:</span>
+              <span class="summary-value" style="color: var(--primary-accent); font-weight: 600;">Serrano Incluído</span>
+            </div>
+
+            <div class="booking-summary-row">
+              <span class="summary-label">Método de Pagamento:</span>
+              <span class="summary-value" id="summaryPaymentMethod">Cartão Bancário (Seguro)</span>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1rem 0;">
+
+            <div class="booking-summary-row">
+              <span class="summary-label">Diárias base:</span>
+              <span class="summary-value" id="summaryBasePrice">250 € (125 €/noite)</span>
+            </div>
+
+            <div class="booking-summary-row">
+              <span class="summary-label">Extras selecionados:</span>
+              <span class="summary-value" id="summaryExtrasPrice">0 €</span>
+            </div>
+
+            <div class="booking-summary-row total" style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 2px solid var(--border-color);">
+              <span style="font-size: 1.1rem; font-weight: 700; color: var(--dark-neutral);">Total Garantido:</span>
+              <strong style="font-size: 1.45rem; color: var(--primary-accent);" id="summaryTotalPrice">250 €</strong>
+            </div>
+
+            <div style="margin-top: 1.25rem; background: var(--bg-light); padding: 0.85rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; color: var(--text-secondary);">
+              <p style="margin: 0 0 0.35rem 0;"><strong>Acolhimento Familiar Garantido:</strong></p>
+              <p style="margin: 0;">A D. Ilda e o Sr. Alberto entrarão em contacto logo após a confirmação para preparar a sua chegada no coração da serra.</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       MODAL DE CONFIRMAÇÃO DE RESERVA (Com Botão WhatsApp para Anfitriões)
+       ========================================================================= -->
+  <div class="booking-modal-backdrop" id="bookingConfirmationModal">
+    <div class="booking-modal-box">
+      <div style="text-align: center; margin-bottom: 1.25rem;">
+        <div style="width: 52px; height: 52px; background: var(--primary-light); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 0.75rem;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary-accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 style="margin: 0 0 0.25rem 0; font-size: 1.5rem;">Reserva Confirmada com Sucesso!</h3>
+        <span style="display: inline-block; background: #e8efe9; color: #2B3E2F; padding: 0.25rem 0.65rem; border-radius: 12px; font-size: 0.78rem; font-weight: 600;">Estado: Confirmado e Pago</span>
+      </div>
+
+      <div style="background: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 1.15rem; margin-bottom: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.88rem;">
+          <span style="color: var(--text-secondary);">Código de Reserva:</span>
+          <strong id="modalBookingCode" style="color: var(--primary-accent);">SC-842918</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.88rem;">
+          <span style="color: var(--text-secondary);">Titular:</span>
+          <strong id="modalGuestName">Hóspede Estimado</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.88rem;">
+          <span style="color: var(--text-secondary);">Alojamento:</span>
+          <strong id="modalUnitName">Suite Tentilhão</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.88rem;">
+          <span style="color: var(--text-secondary);">Valor Total Pago:</span>
+          <strong id="modalTotalPaid" style="color: var(--primary-accent);">250 €</strong>
+        </div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-bottom: 1.25rem;">
+        Enviámos o comprovativo detalhado para o seu e-mail. Para agilizar o check-in ou pedir dicas de viagem, contacte diretamente os anfitriões D. Ilda &amp; Sr. Alberto:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+        <a id="modalWhatsappBtn" href="https://wa.me/351919926167" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; height: 46px;">
+          <svg class="icon-svg-sm" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>Falar com D. Ilda no WhatsApp (+351 919 926 167)</span>
+        </a>
+        <button type="button" class="btn btn-outline-dark close-booking-modal" style="height: 44px;">
+          Fechar e Voltar ao Início
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ DA PÁGINA DE RESERVAS -->
+  <footer class="footer" style="margin-top: 3rem; padding: 2rem 0; background: #1C1612;">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <p style="margin: 0; font-size: 0.85rem; color: #a3958c;">
+        &copy; 2026 Solar da Castanha – Forest House. RNET Nº 8443. Souto do Concelho, Manteigas.
+      </p>
+      <p style="margin: 0; font-size: 0.85rem; color: #a3958c;">
+        Padrões de Identidade e Design por <strong>Bruto</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
