@@ -3,7 +3,7 @@
  * Standard de Produção Bruto — Motion & Interaction System
  * 
  * Filosofia de Hospitalidade Serrana:
- * - Acolhimento caloroso, autêntico e de proximidade (D. Ilda e Sr. Alberto).
+ * - Acolhimento caloroso, autêntico e de proximidade no coração da serra.
  * - Ritmo orgânico, sereno e fluido (sem saltos bruscos / no bounce).
  * - Transições suaves com curva cubic-bezier(0.22, 1, 0.36, 1).
  * - Transparência total em disponibilidade, preços e comodidades de montanha.
@@ -589,7 +589,7 @@ function initDuvidasForm() {
     const message = (document.getElementById('duvida-mensagem') || {}).value || '';
 
     const waText = encodeURIComponent(
-      `Olá D. Ilda e Sr. Alberto! O meu nome é ${name}.\n` +
+      `Olá! O meu nome é ${name}.\n` +
       `Contacto: ${phone || email}\n` +
       `Gostaria de colocar uma dúvida sobre o Solar da Castanha:\n"${message}"`
     );
@@ -608,7 +608,7 @@ function initDuvidasForm() {
         Mensagem enviada com sucesso!
       </p>
       <p style="margin: 0 0 0.75rem 0; font-size: 0.85rem; color: var(--text-secondary);">
-        A D. Ilda e o Sr. Alberto responderão o mais brevemente possível. Se preferir resposta imediata:
+        O Solar da Castanha responderá o mais brevemente possível. Se preferir resposta imediata:
       </p>
       <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; padding: 0.45rem 0.9rem;">
         <span>Abrir no WhatsApp</span>
@@ -819,12 +819,12 @@ function initDedicatedBookingPage() {
 
       if (waBtn) {
         const waMsg = encodeURIComponent(
-          `Olá D. Ilda e Sr. Alberto! Concluí a confirmação de reserva no Solar da Castanha:\n` +
+          `Olá! Concluí a confirmação de reserva no Solar da Castanha:\n` +
           `Código: ${bookingCode}\n` +
           `Titular: ${name}\n` +
           `Alojamento: ${unit.name}\n` +
           `Contacto: ${phone || email}\n` +
-          `Fico a aguardar a vossa confirmação e as dicas de receção. Muito obrigado!`
+          `Fico a aguardar a confirmação e as informações de receção. Muito obrigado!`
         );
         waBtn.href = `https://wa.me/351919926167?text=${waMsg}`;
       }
