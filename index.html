@@ -247,9 +247,9 @@
         <!-- Acordeão em Arquivo (Estilo File Drawer com Carrossel de Imagens) -->
         <div class="houses-file-accordion" id="housesAccordion">
 
-          <!-- Acomodação 1: Suite Tentilhão (~26 m²) -->
-          <article class="house-file-item active" data-unit="tentilhao">
-            <div class="house-file-header" role="button" aria-expanded="true" tabindex="0">
+          <!-- Acomodação 1: Suite Tentilhão -->
+          <article class="house-file-item" data-unit="tentilhao">
+            <div class="house-file-header" role="button" aria-expanded="false" tabindex="0">
               <div class="house-file-left">
                 <div class="house-file-thumb">
                   <img src="assets/images/interior_quarto.jpg" alt="Suite Tentilhão">
@@ -269,7 +269,7 @@
 
             <div class="house-file-drawer">
               <div class="house-drawer-grid">
-                <!-- Coluna Esquerda: Carrossel + Comodidades -->
+                <!-- Coluna Esquerda: Apenas Imagens / Carrossel -->
                 <div class="house-drawer-col-left">
                   <div class="unit-carousel-wrap" data-carousel="tentilhao">
                     <div class="unit-carousel-track">
@@ -300,8 +300,20 @@
                       <button class="carousel-dot" aria-label="Foto 4"></button>
                     </div>
                   </div>
+                </div>
 
-                  <div class="house-drawer-highlights">
+                <!-- Coluna Direita: Informações, Comodidades e Reserva -->
+                <div class="house-drawer-info">
+                  <div class="house-drawer-meta">
+                    <div class="house-drawer-tags">
+                      <span class="house-drawer-tag">Até 4 Hóspedes</span>
+                    </div>
+                    <span class="house-drawer-price">Desde 125 € <small style="font-size:0.75rem; font-weight:normal;">/ noite</small></span>
+                  </div>
+                  <p class="house-drawer-desc">
+                    A mais espaçosa acomodação do Solar, a Suite Tentilhão homenageia o pássaro cantor das florestas de Manteigas. Apresenta vigas aparentes em madeira de castanho, detalhes em linho e burel tradicional, e uma generosa varanda privativa onde o café da manhã ganha um horizonte incomparável sobre o souto.
+                  </p>
+                  <div class="house-drawer-highlights" style="margin-bottom: 1.35rem;">
                     <span class="highlights-heading">Comodidades &amp; Destaques</span>
                     <ul class="house-drawer-features">
                       <li>
@@ -322,24 +334,6 @@
                       </li>
                     </ul>
                   </div>
-                </div>
-
-                <!-- Coluna Direita: Informações e Reserva -->
-                <div class="house-drawer-info">
-                  <div class="house-drawer-meta">
-                    <div class="house-drawer-tags">
-                      <span class="house-drawer-tag">Área ~26 m² • Até 4 Hóspedes</span>
-                      <span class="house-drawer-nucleo-badge">Vista Panorâmica de Montanha</span>
-                    </div>
-                    <span class="house-drawer-price">Desde 125 € <small style="font-size:0.75rem; font-weight:normal;">/ noite</small></span>
-                  </div>
-                  <p class="house-drawer-desc">
-                    A mais espaçosa acomodação do Solar, a Suite Tentilhão homenageia o pássaro cantor das florestas de Manteigas. Apresenta vigas aparentes em madeira de castanho, detalhes em linho e burel tradicional, e uma generosa varanda privativa onde o café da manhã ganha um horizonte incomparável sobre o souto.
-                  </p>
-                  <div class="house-drawer-nucleo-box">
-                    <span class="nucleo-pill">Pequeno-Almoço Serrano Incluído</span>
-                    <p>Todas as manhãs com pão de centeio estaladiço, queijo amanteigado da Serra da Estrela, doce caseiro de castanhas da quinta e sumo natural servido no conforto do espaço.</p>
-                  </div>
                   <div class="house-drawer-cta-row">
                     <a href="reservas.html?unit=tentilhao" class="btn btn-primary">Reservar Suite Tentilhão</a>
                     <a href="https://wa.me/351919926167?text=Ol%C3%A1%20D.%20Ilda,%20gostaria%20de%20saber%20a%20disponibilidade%20da%20Suite%20Tentilh%C3%A3o%20no%20Solar%20da%20Castanha." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Perguntar por WhatsApp</a>
@@ -349,7 +343,7 @@
             </div>
           </article>
 
-          <!-- Acomodação 2: Quarto Esquilo (~15 m²) -->
+          <!-- Acomodação 2: Quarto Esquilo -->
           <article class="house-file-item" data-unit="esquilo">
             <div class="house-file-header" role="button" aria-expanded="false" tabindex="0">
               <div class="house-file-left">
@@ -370,7 +364,8 @@
             </div>
 
             <div class="house-file-drawer">
-              <div class="house-drawer-grid">
+              <!-- Grelha Invertida: Imagens à direita e Conteúdo à esquerda -->
+              <div class="house-drawer-grid house-drawer-grid--reverse">
                 <div class="house-drawer-col-left">
                   <div class="unit-carousel-wrap" data-carousel="esquilo">
                     <div class="unit-carousel-track">
@@ -401,8 +396,19 @@
                       <button class="carousel-dot" aria-label="Foto 4"></button>
                     </div>
                   </div>
+                </div>
 
-                  <div class="house-drawer-highlights">
+                <div class="house-drawer-info">
+                  <div class="house-drawer-meta">
+                    <div class="house-drawer-tags">
+                      <span class="house-drawer-tag">Até 4 Hóspedes</span>
+                    </div>
+                    <span class="house-drawer-price">Desde 95 € <small style="font-size:0.75rem; font-weight:normal;">/ noite</small></span>
+                  </div>
+                  <p class="house-drawer-desc">
+                    Inspirado nos esquilos vermelhos que habitam o castinçal e saltitam pelas copas centenárias à vista da janela, este quarto combina o calor da madeira natural com a espessura protetora da alvenaria de granito. Ideal para pequenas famílias ou quem procura aconchego genuíno após um dia nos trilhos.
+                  </p>
+                  <div class="house-drawer-highlights" style="margin-bottom: 1.35rem;">
                     <span class="highlights-heading">Comodidades &amp; Destaques</span>
                     <ul class="house-drawer-features">
                       <li>
@@ -423,23 +429,6 @@
                       </li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="house-drawer-info">
-                  <div class="house-drawer-meta">
-                    <div class="house-drawer-tags">
-                      <span class="house-drawer-tag">Área ~15 m² • Até 4 Hóspedes</span>
-                      <span class="house-drawer-nucleo-badge">Refúgio Rústico</span>
-                    </div>
-                    <span class="house-drawer-price">Desde 95 € <small style="font-size:0.75rem; font-weight:normal;">/ noite</small></span>
-                  </div>
-                  <p class="house-drawer-desc">
-                    Inspirado nos esquilos vermelhos que habitam o castinçal e saltitam pelas copas centenárias à vista da janela, este quarto combina o calor da madeira natural com a espessura protetora da alvenaria de granito. Ideal para pequenas famílias ou quem procura aconchego genuíno após um dia nos trilhos.
-                  </p>
-                  <div class="house-drawer-nucleo-box">
-                    <span class="nucleo-pill">Conforto Térmico de Montanha</span>
-                    <p>Totalmente isolado com lã serrana e aquecimento regulável para assegurar noites quentes mesmo nas madrugadas mais frias da Serra da Estrela.</p>
-                  </div>
                   <div class="house-drawer-cta-row">
                     <a href="reservas.html?unit=esquilo" class="btn btn-primary">Reservar Quarto Esquilo</a>
                     <a href="https://wa.me/351919926167?text=Ol%C3%A1%20D.%20Ilda,%20gostaria%20de%20saber%20a%20disponibilidade%20do%20Quarto%20Esquilo%20no%20Solar%20da%20Castanha." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Perguntar por WhatsApp</a>
@@ -449,7 +438,7 @@
             </div>
           </article>
 
-          <!-- Acomodação 3: Quarto Raposa (~12 m²) -->
+          <!-- Acomodação 3: Quarto Raposa -->
           <article class="house-file-item" data-unit="raposa">
             <div class="house-file-header" role="button" aria-expanded="false" tabindex="0">
               <div class="house-file-left">
@@ -501,8 +490,19 @@
                       <button class="carousel-dot" aria-label="Foto 4"></button>
                     </div>
                   </div>
+                </div>
 
-                  <div class="house-drawer-highlights">
+                <div class="house-drawer-info">
+                  <div class="house-drawer-meta">
+                    <div class="house-drawer-tags">
+                      <span class="house-drawer-tag">Até 3 Hóspedes</span>
+                    </div>
+                    <span class="house-drawer-price">Desde 85 € <small style="font-size:0.75rem; font-weight:normal;">/ noite</small></span>
+                  </div>
+                  <p class="house-drawer-desc">
+                    O Quarto Raposa foi concebido para quem valoriza o silêncio profundo e a cumplicidade de um refúgio acolhedor na montanha. Com iluminação suave, mantas de lã pura e vista voltada para a floresta onde a raposa da serra passeia ao entardecer, é a escolha ideal para escapadinhas a dois.
+                  </p>
+                  <div class="house-drawer-highlights" style="margin-bottom: 1.35rem;">
                     <span class="highlights-heading">Comodidades &amp; Destaques</span>
                     <ul class="house-drawer-features">
                       <li>
@@ -522,23 +522,6 @@
                         <span>Wi-Fi gratuito, climatização e pequeno-almoço serrano</span>
                       </li>
                     </ul>
-                  </div>
-                </div>
-
-                <div class="house-drawer-info">
-                  <div class="house-drawer-meta">
-                    <div class="house-drawer-tags">
-                      <span class="house-drawer-tag">Área ~12 m² • Até 3 Hóspedes</span>
-                      <span class="house-drawer-nucleo-badge">Paz &amp; Descanso</span>
-                    </div>
-                    <span class="house-drawer-price">Desde 85 € <small style="font-size:0.75rem; font-weight:normal;">/ noite</small></span>
-                  </div>
-                  <p class="house-drawer-desc">
-                    O Quarto Raposa foi concebido para quem valoriza o silêncio profundo e a cumplicidade de um refúgio acolhedor na montanha. Com iluminação suave, mantas de lã pura e vista voltada para a floresta onde a raposa da serra passeia ao entardecer, é a escolha ideal para escapadinhas a dois.
-                  </p>
-                  <div class="house-drawer-nucleo-box">
-                    <span class="nucleo-pill">O Som da Ribeira</span>
-                    <p>Adormeça com o rumor límpido da Ribeira de Leandres a serpentear pelas rochas e acorde com a luz suave a filtrar-se pelas folhas dos castanheiros.</p>
                   </div>
                   <div class="house-drawer-cta-row">
                     <a href="reservas.html?unit=raposa" class="btn btn-primary">Reservar Quarto Raposa</a>
