@@ -318,7 +318,8 @@ function initUnitCarousel(item) {
 }
 
 /**
- * 6. Carrossel / Ticker Suave de Avaliações com Suporte a Drag & Touch
+ * 6. Carrossel / Ticker Suave de Avaliações em Rotação Contínua e Sem Fim
+ * Com suporte nativo a drag por rato, touch em dispositivos móveis e pausa na passagem do cursor
  */
 function initReviewsInteractiveScroll() {
   const wrapper = document.querySelector('.reviews-ticker-wrapper');
@@ -326,46 +327,104 @@ function initReviewsInteractiveScroll() {
   if (!wrapper || !track) return;
 
   let isDown = false;
+  let isHovered = false;
   let startX = 0;
-  let scrollLeft = 0;
+  let currentX = 0;
+  let animId = null;
+  const speed = 0.55; // Velocidade fluida (~33px/s a 60fps)
 
+  // Metade da largura total do track (os 7 cartões originais)
+  function getHalfWidth() {
+    return track.scrollWidth / 2;
+  }
+
+  function render() {
+    if (!isDown && !isHovered) {
+      currentX -= speed;
+      const halfWidth = getHalfWidth();
+      if (halfWidth > 0 && Math.abs(currentX) >= halfWidth) {
+        currentX += halfWidth; // Loop infinito contínuo e impercetível
+      }
+      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+    }
+    animId = requestAnimationFrame(render);
+  }
+
+  // Iniciar carrossel rotativo
+  animId = requestAnimationFrame(render);
+
+  // Pausa ao passar o cursor para leitura atenta
+  wrapper.addEventListener('mouseenter', () => {
+    isHovered = true;
+  });
+
+  wrapper.addEventListener('mouseleave', () => {
+    isHovered = false;
+    if (isDown) {
+      isDown = false;
+      wrapper.classList.remove('is-dragging');
+    }
+  });
+
+  // Arrastamento por Rato (Drag)
   wrapper.addEventListener('mousedown', (e) => {
     isDown = true;
     wrapper.classList.add('is-dragging');
-    track.style.animationPlayState = 'paused';
-    startX = e.pageX - wrapper.offsetLeft;
-    scrollLeft = wrapper.scrollLeft;
+    startX = e.pageX;
   });
 
-  wrapper.addEventListener('mouseleave', () => {
+  window.addEventListener('mouseup', () => {
     if (!isDown) return;
     isDown = false;
     wrapper.classList.remove('is-dragging');
-    track.style.animationPlayState = 'running';
   });
 
-  wrapper.addEventListener('mouseup', () => {
+  window.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    const deltaX = e.pageX - startX;
+    startX = e.pageX;
+    currentX += deltaX;
+
+    const halfWidth = getHalfWidth();
+    if (halfWidth > 0) {
+      if (currentX < -halfWidth) {
+        currentX += halfWidth;
+      } else if (currentX > 0) {
+        currentX -= halfWidth;
+      }
+    }
+    track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+  });
+
+  // Suporte Touch (Mobile / Tablet)
+  let touchStartX = 0;
+  wrapper.addEventListener('touchstart', (e) => {
+    isDown = true;
+    touchStartX = e.touches[0].pageX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
     if (!isDown) return;
     isDown = false;
-    wrapper.classList.remove('is-dragging');
-    track.style.animationPlayState = 'running';
   });
 
-  wrapper.addEventListener('mousemove', (e) => {
+  wrapper.addEventListener('touchmove', (e) => {
     if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - wrapper.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    wrapper.scrollLeft = scrollLeft - walk;
-  });
+    const currentTouchX = e.touches[0].pageX;
+    const deltaX = currentTouchX - touchStartX;
+    touchStartX = currentTouchX;
+    currentX += deltaX;
 
-  // Pausar na passagem do cursor para leitura calma
-  wrapper.addEventListener('mouseenter', () => {
-    track.style.animationPlayState = 'paused';
-  });
-  wrapper.addEventListener('mouseleave', () => {
-    if (!isDown) track.style.animationPlayState = 'running';
-  });
+    const halfWidth = getHalfWidth();
+    if (halfWidth > 0) {
+      if (currentX < -halfWidth) {
+        currentX += halfWidth;
+      } else if (currentX > 0) {
+        currentX -= halfWidth;
+      }
+    }
+    track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+  }, { passive: true });
 }
 
 /**

@@ -4201,6 +4201,7 @@ h2 {
   gap: 3.5rem;
   width: max-content;
   will-change: transform;
+  align-items: stretch;
 }
 
 /* Opiniões sem quadro em volta (Sem bordas, sem fundo de cartão, pura elegância tipográfica) */
@@ -4257,6 +4258,7 @@ h2 {
   gap: 0.25rem;
   border-top: 1px solid rgba(41, 46, 49, 0.1);
   padding-top: 0.85rem;
+  margin-top: auto;
 }
 
 .review-name {
