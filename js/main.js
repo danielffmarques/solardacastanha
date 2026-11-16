@@ -401,25 +401,25 @@ function initActivitiesTabs() {
       distance: '~2,5 km • 5 min do Solar',
       image: 'assets/images/activity_manteigas_vila.jpg',
       imageAlt: 'Vila histórica de Manteigas no Parque Natural da Serra da Estrela',
-      desc: 'Coração da Serra da Estrela e berço do Vale Glaciar do Zêzere. Manteigas conjuga cascatas míticas como o Poço do Inferno, a poesia outonal da Rota das Faias e a arte viva do burel.',
+      desc: 'Coração da Serra da Estrela, terra de quedas de água míticas como o Poço do Inferno, trilhos outonais de faias e castanheiros, teares seculares de burel e restauração de montanha.',
       highlights: [
-        'Cascata Monumental do Poço do Inferno',
-        'Trilho Dourado da Rota das Faias',
-        'Vale Glaciar do Zêzere (UNESCO)',
-        'Tecelagem de Burel & Termas de Manteigas'
+        'Cascata Monumental do Poço do Inferno (3,8 km)',
+        'Trilho Dourado da Rota das Faias (4,5 km)',
+        'Fábrica do Burel & Teares do Século XIX (2,5 km)',
+        'Restaurante Berne & Sabores Serranos (2 km)'
       ]
     },
     seia: {
       title: 'Seia',
-      distance: '~26 km • 32 min do Solar',
+      distance: '~18 km • 22 min do Solar',
       image: 'assets/images/activity_seia_sabugueiro.jpg',
       imageAlt: 'Aldeia típica do Sabugueiro em Seia',
-      desc: 'Na vertente ocidental da serra, Seia guarda a tradição pastoril mais genuína, as aldeias de montanha como o Sabugueiro, os fornos comunitários de centeio e o saber ancestral do queijo.',
+      desc: 'Na vertente ocidental da serra, Seia guarda a aldeia mais alta de Portugal no Sabugueiro, o enigmático trilho do Covão dos Conchos e restauração beirã premiada.',
       highlights: [
-        'Aldeia Típica do Sabugueiro (Mais Alta de Portugal)',
-        'Museu do Pão & Tradições do Centeio',
-        'Fumeiro Tradicional & Requeijão com Doce de Abóbora',
-        'Porta Ocidental do Parque Natural'
+        'Trilho Pedestre do Covão dos Conchos (22 km)',
+        'Aldeia Típica do Sabugueiro a 1.100 m (18 km)',
+        'Restaurante Abrigo da Montanha no Sabugueiro (18 km)',
+        'Porta Ocidental do Parque Natural da Serra da Estrela'
       ]
     },
     covilha: {
@@ -427,18 +427,18 @@ function initActivitiesTabs() {
       distance: '~24 km • 30 min do Solar',
       image: 'assets/images/activity_covilha_lanificios.jpg',
       imageAlt: 'Covilhã e Museu dos Lanifícios',
-      desc: 'Erguida nas encostas viradas para a Cova da Beira, a Covilhã alia a secular indústria de lanifícios e teares à subida direta ao cume da Torre e aos grandes miradouros serranos.',
+      desc: 'Erguida na vertente sudeste da serra, a Covilhã conjuga o audacioso Miradouro suspenso dos Carqueijais, a herança têxtil da Real Fábrica Pombalina e os petiscos da Taberna A Laranjinha.',
       highlights: [
-        'Museu dos Lanifícios & Real Fábrica de Panos',
-        'Torre & Maciço Central a 1993 m de Altitude',
-        'Miradouros Panorâmicos da Cova da Beira',
-        'Gastronomia Típica & Pastéis de Molho'
+        'Miradouro Suspenso da Varanda dos Carqueijais (22 km)',
+        'Museu dos Lanifícios na Real Fábrica de Panos (24 km)',
+        'Taberna A Laranjinha no Centro Histórico (24 km)',
+        'Rota Urbana de Arte Contemporânea e Tradição da Lã'
       ]
     }
   };
 
   let currentPage = 1;
-  const cardsPerPage = 9;
+  const cardsPerPage = 12;
   let filteredCards = [...allCards];
 
   function applyFilters() {
