@@ -2377,24 +2377,68 @@ img {
   position: relative;
   background-color: #1C1917;
   color: #FFFFFF;
-  padding: 44px 0 24px;
+  padding: 52px 0 28px;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr 0.8fr 1.2fr;
-  gap: 36px;
-  margin-bottom: 36px;
+  grid-template-columns: 290px 180px 400px;
+  justify-content: center;
+  gap: 52px;
+  max-width: 980px;
+  margin: 0 auto 40px;
+  align-items: start;
 }
 
 .footer-col h4 {
   color: #FFFFFF;
-  font-size: 1.15rem;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.05rem;
   font-weight: 700;
+  margin-top: 0;
   margin-bottom: 14px;
   letter-spacing: -0.01em;
+}
+
+/* Coluna 1: Logo Oficial e Nome do Alojamento */
+.footer-brand-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.footer-brand-logo {
+  height: 44px;
+  width: auto;
+  max-width: 50px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+  margin-top: 0;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.footer-brand-title {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.01em;
+}
+
+.footer-brand-location {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-col p, .footer-col li {
@@ -2418,19 +2462,20 @@ img {
 
 /* Bloco de Contactos por baixo da secção esquerda */
 .footer-contacts-block {
-  margin-top: 14px;
-  padding-top: 14px;
+  margin-top: 18px;
+  padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .footer-contacts-title {
-  font-size: 0.88rem;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #8E9E29;
-  margin-bottom: 4px;
+  color: #FFFFFF;
+  margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
 
@@ -2463,7 +2508,7 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .social-icon-btn {
@@ -2516,25 +2561,19 @@ img {
 }
 
 .footer-distances-line {
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 14px;
-  white-space: nowrap;
-  max-width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.footer-distances-line::-webkit-scrollbar {
-  display: none;
+  margin-bottom: 12px;
+  line-height: 1.45;
 }
 
 .footer-map-under {
   border-radius: var(--border-radius-sm, 8px);
   overflow: hidden;
-  height: 180px;
+  height: 160px;
   width: 100%;
-  margin-top: 14px;
+  max-width: 400px;
+  margin-top: 12px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
