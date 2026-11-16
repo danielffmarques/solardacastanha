@@ -62,13 +62,13 @@ section[id],
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
   scroll-behavior: smooth;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
   position: relative;
   font-family: var(--font-body);
@@ -4254,7 +4254,7 @@ h2 {
   text-align: center;
 }
 
-/* 5. Secção G — FAQ e Formulário de Dúvidas Integrado */
+/* 5. Secção G — FAQ e Formulário de Dúvidas Integrado (Sticky Centrado no Ecrã) */
 .faq-duvidas-layout {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -4263,31 +4263,106 @@ h2 {
   align-items: stretch;
 }
 
+.faq-contact-col,
 .faq-form-col {
   position: relative;
   height: 100%;
 }
 
+.duvidas-card-sticky,
 .duvidas-form-card {
+  position: -webkit-sticky;
+  position: sticky;
+  top: max(88px, calc(50vh - 280px));
   background-color: var(--bg-white);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-lg);
-  padding: 1.75rem;
-  box-shadow: var(--shadow-md);
-  position: sticky;
-  top: max(90px, calc(50vh - 250px));
+  padding: 1.5rem 1.6rem;
+  box-shadow: 0 10px 30px -5px rgba(41, 46, 49, 0.08), 0 2px 6px rgba(41, 46, 49, 0.04);
   transition: box-shadow var(--duration-fast) var(--ease-organic);
+  z-index: 10;
 }
 
+.duvidas-header {
+  margin-bottom: 1rem;
+}
+
+.duvidas-card-title,
 .duvidas-form-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
   color: var(--dark-neutral);
+  margin-bottom: 0.25rem;
+  line-height: 1.25;
 }
 
+.duvidas-card-subtitle,
 .duvidas-form-card p {
   font-size: 0.88rem;
-  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.duvidas-form .form-group {
+  margin-bottom: 0.75rem;
+}
+
+.duvidas-form label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dark-neutral);
+  margin-bottom: 0.25rem;
+}
+
+.duvidas-form .form-control {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: #FAFAF8;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  transition: border-color var(--duration-fast), background-color var(--duration-fast);
+}
+
+.duvidas-form textarea.form-control {
+  min-height: 68px;
+  resize: vertical;
+}
+
+.duvidas-form .form-control:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  background-color: #FFFFFF;
+}
+
+.duvidas-direct-wa {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(41, 46, 49, 0.08);
+  text-align: center;
+}
+
+.duvidas-wa-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--primary-accent);
+  text-decoration: none;
+  transition: opacity var(--duration-fast);
+}
+
+.duvidas-wa-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 /* 6. Página 2: Reservas Online (Layout e Componentes Dedicados) */
@@ -4595,6 +4670,7 @@ h2 {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  .duvidas-card-sticky,
   .duvidas-form-card {
     position: static;
     top: auto;
